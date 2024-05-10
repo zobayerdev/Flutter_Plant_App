@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:plant_app/app_behavior.dart';
 import 'package:plant_app/ui/onboarding_screen.dart';
-
 import 'package:device_preview/device_preview.dart';
 
 void main() => runApp(
@@ -23,13 +24,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Onboarding Screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      scrollBehavior: AppScrollBehavior(),
       home: OnboardingScreen(),
     );
   }

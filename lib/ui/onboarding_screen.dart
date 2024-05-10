@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
-import 'package:plant_app/ui/root.dart';
+
+import 'screens/signin_page.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  /*for onboarding screen*/
   final PageController _pageController = PageController(initialPage: 0);
   int currentIndex = 0;
 
@@ -19,30 +19,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0.0,
+        backgroundColor: Colors.white,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20, top: 20),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RootPage(),
-                  ),
-                );
-              },
+                    context, MaterialPageRoute(builder: (_) => const SignIn()));
+              }, //to login screen. We will update later
               child: const Text(
                 'Skip',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.grey,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
       body: Stack(
@@ -50,11 +46,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           PageView(
             onPageChanged: (int page) {
-              setState(
-                () {
-                  currentIndex = page;
-                },
-              );
+              setState(() {
+                currentIndex = page;
+              });
             },
             controller: _pageController,
             children: [
@@ -78,43 +72,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Positioned(
             bottom: 80,
             left: 30,
-            child: Row(children: _buildIndicator()),
+            child: Row(
+              children: _buildIndicator(),
+            ),
           ),
           Positioned(
             bottom: 60,
             right: 30,
             child: Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Constants.primaryColor.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(10),
-              ),
               child: IconButton(
-                onPressed: () {
-                  setState(
-                    () {
+                  onPressed: () {
+                    setState(() {
                       if (currentIndex < 2) {
-                        _pageController.animateToPage(
-                          currentIndex + 1,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
+                        currentIndex++;
+                        if (currentIndex < 3) {
+                          _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeIn);
+                        }
                       } else {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RootPage(),
-                          ),
-                        );
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => const SignIn()));
                       }
-                    },
-                  );
-                },
-                icon: const Icon(
-                  Icons.arrow_forward,
-                  size: 24,
-                  color: Colors.black,
-                ),
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 24,
+                    color: Colors.white,
+                  )),
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Constants.primaryColor,
               ),
             ),
           ),
@@ -123,48 +113,49 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-//create the indicator
+  //Extra Widgets
+
+  //Create the indicator decorations widget
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.only(right: 5),
-      height: 8,
-      width: isActive ? 24 : 8,
+      height: 10.0,
+      width: isActive ? 20 : 8,
+      margin: const EdgeInsets.only(right: 5.0),
       decoration: BoxDecoration(
-        color: isActive
-            ? Constants.primaryColor
-            : Constants.primaryColor.withOpacity(0.5),
+        color: Constants.primaryColor,
         borderRadius: BorderRadius.circular(5),
       ),
     );
   }
 
-//create the list of indicators
+//Create the indicator list
   List<Widget> _buildIndicator() {
     List<Widget> indicators = [];
+
     for (int i = 0; i < 3; i++) {
-      if (i == currentIndex) {
+      if (currentIndex == i) {
         indicators.add(_indicator(true));
       } else {
         indicators.add(_indicator(false));
       }
     }
+
     return indicators;
   }
 }
 
-// page creation
 class createPage extends StatelessWidget {
   final String image;
   final String title;
   final String description;
 
   const createPage({
-    super.key,
+    Key? key,
     required this.image,
     required this.title,
     required this.description,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -185,8 +176,8 @@ class createPage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Constants.primaryColor,
-              fontWeight: FontWeight.bold,
               fontSize: 30,
+              fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(
@@ -195,15 +186,15 @@ class createPage extends StatelessWidget {
           Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Constants.primaryColor,
-              fontWeight: FontWeight.w400,
+            style: const TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey,
             ),
           ),
           const SizedBox(
             height: 20,
-          )
+          ),
         ],
       ),
     );

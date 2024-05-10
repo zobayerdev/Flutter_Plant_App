@@ -2,40 +2,55 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/models/plants.dart';
 import 'package:plant_app/ui/screens/cart_page.dart';
-import 'package:plant_app/ui/screens/favourite_page.dart';
+import 'package:plant_app/ui/screens/favorite_page.dart';
 import 'package:plant_app/ui/screens/home_page.dart';
 import 'package:plant_app/ui/screens/profile_page.dart';
 import 'package:plant_app/ui/screens/scan_page.dart';
 
 class RootPage extends StatefulWidget {
-  const RootPage({super.key});
+  const RootPage({Key? key}) : super(key: key);
 
   @override
   State<RootPage> createState() => _RootPageState();
 }
 
 class _RootPageState extends State<RootPage> {
+  List<Plant> favorites = [];
+  List<Plant> myCart = [];
+
   int _bottomNavIndex = 0;
 
-// list of the page
-  List<Widget> pages = const [
-    HomePage(),
-    FavouritePage(),
-    CartPage(),
-    ProfilePage(),
-  ];
+  //List of the pages
+  List<Widget> _widgetOptions() {
+    return [
+      const HomePage(),
+      FavoritePage(
+        favoritedPlants: favorites,
+      ),
+      CartPage(
+        addedToCartPlants: myCart,
+      ),
+      const ProfilePage(),
+    ];
+  }
 
-// list of the page icons
+  //List of the pages icons
   List<IconData> iconList = [
     Icons.home,
-    Icons.favorite_outline_outlined,
+    Icons.favorite,
     Icons.shopping_cart,
-    Icons.person
+    Icons.person,
   ];
 
-  // list of the page titles
-  List<String> titleList = ['Home', 'Favourite', 'Cart', 'Profile'];
+  //List of the pages titles
+  List<String> titleList = [
+    'Home',
+    'Favorite',
+    'Cart',
+    'Profile',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +67,11 @@ class _RootPageState extends State<RootPage> {
                 fontSize: 24,
               ),
             ),
-            Icon(Icons.notifications, color: Constants.blackColor, size: 30.0),
+            Icon(
+              Icons.notifications,
+              color: Constants.blackColor,
+              size: 30.0,
+            )
           ],
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -60,7 +79,7 @@ class _RootPageState extends State<RootPage> {
       ),
       body: IndexedStack(
         index: _bottomNavIndex,
-        children: pages,
+        children: _widgetOptions(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -88,6 +107,11 @@ class _RootPageState extends State<RootPage> {
           onTap: (index) {
             setState(() {
               _bottomNavIndex = index;
+              final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
+              final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
+
+              favorites = favoritedPlants;
+              myCart = addedToCartPlants.toSet().toList();
             });
           }),
     );
