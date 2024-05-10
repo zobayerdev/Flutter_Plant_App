@@ -49,6 +49,10 @@ class _HomePageState extends State<HomePage> {
                     horizontal: 16.0,
                   ),
                   width: size.width * .9,
+                  decoration: BoxDecoration(
+                    color: Constants.primaryColor.withOpacity(.1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -71,10 +75,6 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.black54.withOpacity(.6),
                       ),
                     ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(20),
                   ),
                 )
               ],

@@ -10,7 +10,7 @@ import 'package:plant_app/ui/screens/profile_page.dart';
 import 'package:plant_app/ui/screens/scan_page.dart';
 
 class RootPage extends StatefulWidget {
-  const RootPage({Key? key}) : super(key: key);
+  const RootPage({super.key});
 
   @override
   State<RootPage> createState() => _RootPageState();
@@ -56,6 +56,7 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -89,11 +90,11 @@ class _RootPageState extends State<RootPage> {
                   child: const ScanPage(),
                   type: PageTransitionType.bottomToTop));
         },
+        backgroundColor: Constants.primaryColor,
         child: Image.asset(
           'assets/images/code-scan-two.png',
           height: 30.0,
         ),
-        backgroundColor: Constants.primaryColor,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
