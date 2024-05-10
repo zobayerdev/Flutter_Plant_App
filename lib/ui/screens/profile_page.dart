@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
               width: 150,
               child: const CircleAvatar(
                 radius: 60,
-                backgroundImage: ExactAssetImage('assets/images/nayem.png'),
+                backgroundImage: ExactAssetImage('assets/images/muin.jpg'),
               ),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,

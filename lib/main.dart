@@ -14,9 +14,7 @@ void main() => runApp(
       ),
     );
 
-// void main() {
-//   runApp(const MyApp());
-// }
+// void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,14 +23,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Onboarding Screen',
+      title: 'My Plant',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       scrollBehavior: AppScrollBehavior(),
-      home: OnboardingScreen(),
+      home: const OnboardingScreen(),
     );
   }
 }
