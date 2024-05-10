@@ -5,8 +5,7 @@ import 'package:plant_app/ui/screens/widgets/plant_widget.dart';
 
 class FavoritePage extends StatefulWidget {
   final List<Plant> favoritedPlants;
-  const FavoritePage({Key? key, required this.favoritedPlants})
-      : super(key: key);
+  const FavoritePage({super.key, required this.favoritedPlants});
 
   @override
   State<FavoritePage> createState() => _FavoritePageState();
