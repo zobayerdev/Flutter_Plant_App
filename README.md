@@ -1,16 +1,17 @@
 # plant_app
-
 Plant Apps developed by Trodev
 
-## Getting Started
+These apps features
+  - Onboarding Screen
+  - Login Screen
+  - Signup Screen
+  - Dashboard Screen
+  - Card Screen
+  - Favourite Screen
+  - Profile Screen
 
-This project is a starting point for a Flutter application.
+In Future added new features.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![487shots_so](https://github.com/zobayerdev/Flutter_Plant_App/assets/74914169/c78ff1c9-7976-43f2-8686-2d096bf689a5)
+![619shots_so](https://github.com/zobayerdev/Flutter_Plant_App/assets/74914169/7da8bc3a-c337-4ab5-9749-f3609e56064f)
+![506shots_so](https://github.com/zobayerdev/Flutter_Plant_App/assets/74914169/e34e3816-ef33-4e08-b3f1-fe414cf25014)
