@@ -3,14 +3,15 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "1fda58a169562c70e00a0399893d598b",
-"assets/AssetManifest.bin.json": "a8d990a735b7f8535500a47fb8ae8e4d",
-"assets/AssetManifest.json": "402efd93a72558491553e2d7a1542a5a",
+const RESOURCES = {"assets/AssetManifest.bin": "61fdd20b3f74f880cb9bec9a01b65d2e",
+"assets/AssetManifest.bin.json": "88f985b6dd1ec8c9c307b1b307fbd4b0",
+"assets/AssetManifest.json": "6cd5f09ad5b774c6d0a7d88954b96aeb",
 "assets/assets/images/add-cart.png": "0efca392cf7680809dbe245bd6b6c81b",
 "assets/assets/images/code-scan-two.png": "d1a786fd1ecc3b69782a1f205abbea99",
 "assets/assets/images/code-scan.png": "3440b258fc731b8419cd4b5a02a8b845",
 "assets/assets/images/favorited.png": "048458213c5f1d8d7b3674bad3a915fa",
 "assets/assets/images/google.png": "ca2f7db280e9c773e341589a81c15082",
+"assets/assets/images/nayem.png": "da3b89fb9168aa35eb2fd586734dac0a",
 "assets/assets/images/plant-eight.png": "90926f6756d93188548ebbd05ba36a38",
 "assets/assets/images/plant-five.png": "f5846197bea69fa2af7abc4c833a5d45",
 "assets/assets/images/plant-four.png": "78775b84f48694858d1dd61c3133668f",
@@ -46,9 +47,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "1fda58a169562c70e00a0399893d598b
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "dbac0c84412f124cc4c504899beafc71",
-"/": "dbac0c84412f124cc4c504899beafc71",
-"main.dart.js": "a94472341d51afbd84ca79bbc1afc995",
+"index.html": "71392ae88b848cfd9de369c4629ff423",
+"/": "71392ae88b848cfd9de369c4629ff423",
+"main.dart.js": "19b653edaf0d73aa7ab84fc3de53a4d3",
 "manifest.json": "ab69076c70c312ac725b31878be4dd8d",
 "version.json": "a281c906ba3477659281c2d6d23ab373"};
 // The application shell files that are downloaded before a service worker can
